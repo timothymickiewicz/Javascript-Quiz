@@ -35,3 +35,11 @@ h1 {
     display: flex;
     justify-content: center;
 }
+
+.questionText {
+    color: chartreuse;
+    font-size: 4vw;
+    text-align: center;
+    margin-top: 6vw;
+    font-family: "Alfa Slab One", "Righteous";
+}
