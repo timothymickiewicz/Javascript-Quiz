@@ -1,0 +1,1 @@
+alert("Press the start button to begin.")
