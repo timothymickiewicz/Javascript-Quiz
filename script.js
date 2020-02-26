@@ -34,6 +34,105 @@ function initialClick() {
         // btn.style.borderColor = "chartreuse";
     
 }
+// functions for question 1
+function nextOneTrue() {
+    trueAnswer();
+    one.removeEventListener("click", nextOneTrue, true);
+    two.removeEventListener("click", nextTwoFalse, true);
+    three.removeEventListener("click", nextThreeFalse, true);
+    four.removeEventListener("click", nextFourFalse, true);
+    movetoTwo();
+}
+function nextTwoFalse() {
+    falseAnswer();
+    one.removeEventListener("click", nextOneTrue, true);
+    two.removeEventListener("click", nextTwoFalse, true);
+    three.removeEventListener("click", nextThreeFalse, true);
+    four.removeEventListener("click", nextFourFalse, true);
+    movetoTwo();
+}
+function nextThreeFalse() {
+    falseAnswer();
+    one.removeEventListener("click", nextOneTrue, true);
+    two.removeEventListener("click", nextTwoFalse, true);
+    three.removeEventListener("click", nextThreeFalse, true);
+    four.removeEventListener("click", nextFourFalse, true);
+    movetoTwo();
+}
+function nextFourFalse() {
+    falseAnswer();
+    one.removeEventListener("click", nextOneTrue, true);
+    two.removeEventListener("click", nextTwoFalse, true);
+    three.removeEventListener("click", nextThreeFalse, true);
+    four.removeEventListener("click", nextFourFalse, true);
+    movetoTwo();
+}
+// functions for question 2
+function q2nextOneFalse() {
+    falseAnswer();
+    one.removeEventListener("click", q2nextOneFalse, true);
+    two.removeEventListener("click", q2nextTwoFalse, true);
+    three.removeEventListener("click", q2nextThreeTrue, true);
+    four.removeEventListener("click", q2nextFourFalse, true);
+    movetoThree();
+}
+function q2nextTwoFalse() {
+    falseAnswer();
+    one.removeEventListener("click", q2nextOneFalse, true);
+    two.removeEventListener("click", q2nextTwoFalse, true);
+    three.removeEventListener("click", q2nextThreeTrue, true);
+    four.removeEventListener("click", q2nextFourFalse, true);
+    movetoThree();
+}
+function q2nextThreeTrue() {
+    trueAnswer();
+    one.removeEventListener("click", q2nextOneFalse, true);
+    two.removeEventListener("click", q2nextTwoFalse, true);
+    three.removeEventListener("click", q2nextThreeTrue, true);
+    four.removeEventListener("click", q2nextFourFalse, true);
+    movetoThree();
+}
+function q2nextFourFalse() {
+    falseAnswer();
+    one.removeEventListener("click", q2nextOneFalse, true);
+    two.removeEventListener("click", q2nextTwoFalse, true);
+    three.removeEventListener("click", q2nextThreeTrue, true);
+    four.removeEventListener("click", q2nextFourFalse, true);
+    movetoThree();
+}
+// Functions for question 3
+function q3nextOneFalse() {
+    falseAnswer();
+    one.removeEventListener("click", q3nextOneFalse, true);
+    two.removeEventListener("click", q3nextTwoFalse, true);
+    three.removeEventListener("click", q3nextThreeFalse, true);
+    four.removeEventListener("click", q3nextFourTrue, true);
+    gotoEndGame();
+}
+function q3nextTwoFalse() {
+    falseAnswer();
+    one.removeEventListener("click", q3nextOneFalse, true);
+    two.removeEventListener("click", q3nextTwoFalse, true);
+    three.removeEventListener("click", q3nextThreeFalse, true);
+    four.removeEventListener("click", q3nextFourTrue, true);
+    gotoEndGame();
+}
+function q3nextThreeFalse() {
+    falseAnswer();
+    one.removeEventListener("click", q3nextOneFalse, true);
+    two.removeEventListener("click", q3nextTwoFalse, true);
+    three.removeEventListener("click", q3nextThreeFalse, true);
+    four.removeEventListener("click", q3nextFourTrue, true);
+    gotoEndGame();
+}
+function q3nextFourTrue() {
+    trueAnswer();
+    one.removeEventListener("click", q3nextOneFalse, true);
+    two.removeEventListener("click", q3nextTwoFalse, true);
+    three.removeEventListener("click", q3nextThreeFalse, true);
+    four.removeEventListener("click", q3nextFourTrue, true);
+    gotoEndGame();
+}
 // Creating questions for quiz
 function firstQuestion() {
     question.innerText = "What is the fastest way to loop through an array?"; 
@@ -41,30 +140,10 @@ function firstQuestion() {
     two.innerText = "var len = arr.length; while (len--) { }";
     three.innerText = "for (var i = array.length; i--; )";
     four.innerText = "while( --length ) { //or length--}";
-    one.addEventListener("click", function(){
-        // one.style.backgroundColor = "blue";
-        check = true;
-        checkAnswer();
-        movetoTwo();
-    })
-    two.addEventListener("click", function(){
-        // two.style.backgroundColor = "red";
-        check = false;
-        checkAnswer();
-        movetoTwo();
-    })
-    three.addEventListener("click", function(){
-        // three.style.backgroundColor = "red";
-        check = false;
-        checkAnswer();
-        movetoTwo();
-    })
-    four.addEventListener("click", function(){
-        // four.style.backgroundColor = "red";
-        check = false;
-        checkAnswer();
-        movetoTwo();
-    })
+    one.addEventListener("click", nextOneTrue, true);
+    two.addEventListener("click", nextTwoFalse, true);
+    three.addEventListener("click", nextThreeFalse, true);
+    four.addEventListener("click", nextFourFalse, true);
 }
 function secondQuestion() {
     question.innerText = "What type of language is Javascript?"; 
@@ -72,30 +151,10 @@ function secondQuestion() {
     two.innerText = "Programming";
     three.innerText = "Scripting";
     four.innerText = "Traditional";
-    one.addEventListener("click", function(){
-        // one.style.backgroundColor = "blue";
-        check = false;
-        checkAnswer();
-        movetoThree();
-    })
-    two.addEventListener("click", function(){
-        // two.style.backgroundColor = "red";
-        check = false;
-        checkAnswer();
-        movetoThree();
-    })
-    three.addEventListener("click", function(){
-        // three.style.backgroundColor = "red";
-        check = true;
-        checkAnswer();
-        movetoThree();
-    })
-    four.addEventListener("click", function(){
-        // four.style.backgroundColor = "red";
-        check = false;
-        checkAnswer();
-        movetoThree();
-    })
+    one.addEventListener("click", q2nextOneFalse, true);
+    two.addEventListener("click", q2nextTwoFalse, true);
+    three.addEventListener("click", q2nextThreeTrue, true);
+    four.addEventListener("click", q2nextFourFalse, true);
 }
 function thirdQuestion() {
     question.innerText = "How do you create an array?"; 
@@ -103,61 +162,17 @@ function thirdQuestion() {
     two.innerText = "Var array = (a, b, c);";
     three.innerText = "Var array = <a, b, c>;";
     four.innerText = "Var notArray = [a, b, c];";
-    one.addEventListener("click", function(){
-        // one.style.backgroundColor = "blue";
-        check = false;
-        checkAnswer();
-        gotoEndGame();
-    })
-    two.addEventListener("click", function(){
-        // two.style.backgroundColor = "red";
-        check = false;
-        checkAnswer();
-        gotoEndGame();
-    })
-    three.addEventListener("click", function(){
-        // three.style.backgroundColor = "red";
-        check = false;
-        checkAnswer();
-        gotoEndGame();
-    })
-    four.addEventListener("click", function(){
-        // four.style.backgroundColor = "red";
-        check = true;
-        checkAnswer();
-        gotoEndGame();
-    })
+    one.addEventListener("click", q3nextOneFalse, true);
+    two.addEventListener("click", q3nextTwoFalse, true);
+    three.addEventListener("click", q3nextThreeFalse, true);
+    four.addEventListener("click", q3nextFourTrue, true);
 }
 function endGame() {
-    question.innerText = parseString(correct); 
-    one.innerText = "Var array = {a, b, c};";
-    two.innerText = "Var array = (a, b, c);";
-    three.innerText = "Var array = <a, b, c>;";
-    four.innerText = "Var notArray = [a, b, c];";
-    one.addEventListener("click", function(){
-        // one.style.backgroundColor = "blue";
-        check = false;
-        checkAnswer();
-        gotoEndGame();
-    })
-    two.addEventListener("click", function(){
-        // two.style.backgroundColor = "red";
-        check = false;
-        checkAnswer();
-        gotoEndGame();
-    })
-    three.addEventListener("click", function(){
-        // three.style.backgroundColor = "red";
-        check = false;
-        checkAnswer();
-        gotoEndGame();
-    })
-    four.addEventListener("click", function(){
-        // four.style.backgroundColor = "red";
-        check = true;
-        checkAnswer();
-        gotoEndGame();
-    })
+    question.innerText = "You answered " + correct + " correct!"; 
+    one.style.display = "none";
+    two.style.display = "none";
+    three.style.display = "none";
+    four.style.display = "none";
 }
 
 // Creating point system
@@ -165,7 +180,7 @@ function checkAnswer() {
     if (check === true) {
         correct = correct + 1;
     }
-    else {
+    else if (check === false) {
         incorrect = incorrect + 1;
         timer = timer - 10;
     }
@@ -207,6 +222,14 @@ if (correct + incorrect === 0) {
     })
 }
 
+function trueAnswer() {
+    check = true;
+    checkAnswer();
+}
+function falseAnswer() {
+    check = false;
+    checkAnswer();
+}
 // make check function, if check function returns value of true, make check answer do an if statement "if check is true, do this and add 10 seconds to timer, else do this and subtract 10 seconds from timer, both lead to next question and log their responses into correct or missed variables, maybe as a number value that gets added to and printed to screen on quiz end page"
 // maybe put all questions into a loop that reiterates until timer hits zero or questions run out
 console.log(header.textContent);
