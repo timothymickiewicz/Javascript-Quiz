@@ -16,7 +16,7 @@ var hs5 = document.getElementById("highScore5");
 var check = null;
 var correct = 0;
 var incorrect = 0;
-var timer = 60;
+var sec = 60;
 var checkClick = null;
 
 // Initial alert describing game parameters
@@ -43,6 +43,25 @@ function initialClick() {
         header.style.display = "none";
         btn.style.visibility = "hidden";
         toggleClass();
+        (function() {
+            // var sec = 5;
+            function startTimer(){
+                console.log('timer suppose to go')
+                var timer = setInterval(function(){
+                    sec--;
+                    document.getElementById('timer').innerHTML="Time: " + sec;
+                    if (sec <= 0) {
+                        clearInterval(timer);
+                        alert("Time is up!");
+                        endGame();
+                    }
+                    else if (correct + incorrect == 3) {
+                        clearInterval(timer);
+                    }
+                }, 1000);
+            }
+            startTimer();
+        })();
     }
 
         // Might use later
@@ -60,7 +79,7 @@ function checkAnswer() {
     }
     else if (check === false) {
         incorrect = incorrect + 1;
-        timer = timer - 10;
+        sec -= 10;
     }
     console.log(correct);
     console.log(incorrect);
@@ -215,7 +234,14 @@ function endGame() {
     four.style.display = "none";
     hs1.innerText = correct;
 }
+// Timer for page
 
+// function countDown(i) {
+//     var int = setInterval(function () {
+//         document.getElementById("timer").innerHTML = "Time Remaining: " + i;
+//         i-- || clearInterval(int);
+//     }, 1000);
+// }
 // create timer that runs during test
 // create high score html that is linked to a hyper link
 console.log(header.textContent);
