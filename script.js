@@ -17,10 +17,9 @@ var check = null;
 var correct = 0;
 var incorrect = 0;
 var sec = 60;
-var checkClick = null;
 
 // Initial alert describing game parameters
-alert("Welcome to my Javascript Quiz! Correct answers are highlighted in blue and add 10 seconds to the timer. Incorrect answers are highlighted in red and subtract 10 seconds from the timer. You have 60 seconds to complete the quiz. High scores are logged so try your best! Press the start button to begin.");
+alert("Welcome to my Javascript Quiz! Correct answers are added to your end game score. Incorrect answers subtract 10 seconds from the timer. You have 60 seconds to complete the quiz. High scores are logged so try your best! Press the start button to begin.");
 //Start button click event
 if (correct + incorrect === 0) {
     btn.addEventListener("click", function() {
@@ -43,34 +42,23 @@ function initialClick() {
         header.style.display = "none";
         btn.style.visibility = "hidden";
         toggleClass();
-        (function() {
-            // var sec = 5;
-            function startTimer(){
-                console.log('timer suppose to go')
-                var timer = setInterval(function(){
-                    sec--;
-                    document.getElementById('timer').innerHTML="Time: " + sec;
-                    if (sec <= 0) {
-                        clearInterval(timer);
-                        alert("Time is up!");
-                        endGame();
-                    }
-                    else if (correct + incorrect == 3) {
-                        clearInterval(timer);
-                    }
-                }, 1000);
+        function startTimer(){
+            console.log('timer suppose to go')
+            var timer = setInterval(function(){
+                sec--;
+                document.getElementById('timer').innerHTML="Time: " + sec;
+                if (sec <= 0) {
+                    clearInterval(timer);
+                    alert("Time is up!");
+                    endGame();
+                }
+                else if (correct + incorrect == 3) {
+                    clearInterval(timer);
+                }
+            }, 1000);
             }
-            startTimer();
-        })();
+        startTimer();
     }
-
-        // Might use later
-        // btn.innerText = "Check Answer";
-        // btn.style.color = "chartreuse";
-        // btn.style.fontSize = "2.5vw";
-        // btn.style.backgroundColor = "black";
-        // btn.style.borderColor = "chartreuse";
-    
 }
 // Creating point system
 function checkAnswer() {
@@ -79,7 +67,7 @@ function checkAnswer() {
     }
     else if (check === false) {
         incorrect = incorrect + 1;
-        sec -= 10;
+        sec -= 10; // Subtracting time for missed answers
     }
     console.log(correct);
     console.log(incorrect);
@@ -234,16 +222,7 @@ function endGame() {
     four.style.display = "none";
     hs1.innerText = correct;
 }
-// Timer for page
 
-// function countDown(i) {
-//     var int = setInterval(function () {
-//         document.getElementById("timer").innerHTML = "Time Remaining: " + i;
-//         i-- || clearInterval(int);
-//     }, 1000);
-// }
-// create timer that runs during test
 // create high score html that is linked to a hyper link
 console.log(header.textContent);
 console.log(btn.textContent);
-console.log(hs1);
