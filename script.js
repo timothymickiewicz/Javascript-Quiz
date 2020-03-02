@@ -8,6 +8,8 @@ var two = document.getElementById("answer2");
 var three = document.getElementById("answer3");
 var four = document.getElementById("answer4");
 var hide = document.querySelector(".hide");
+var form = document.querySelector("form");
+var hs = document.getElementById("highScores");
 var hs1 = document.getElementById("highScore1");
 var hs2 = document.getElementById("highScore2");
 var hs3 = document.getElementById("highScore3");
@@ -40,6 +42,8 @@ function initialClick() {
     if (document.body.style.background = "url(https://static.makeuseof.com/wp-content/uploads/2017/10/What-Is-JavaScript-Featured-670x335.jpg)") {
         document.body.style.background = "url(https://media.gettyimages.com/videos/4k-rain-multiple-different-layers-isolated-over-black-tested-video-id695625094?s=640x640)"
         header.style.display = "none";
+        hs.style.visibility = "hidden";
+        form.style.visibility = "hidden";
         btn.style.visibility = "hidden";
         toggleClass();
         function startTimer(){
@@ -220,7 +224,8 @@ function endGame() {
     two.style.display = "none";
     three.style.display = "none";
     four.style.display = "none";
-    hs1.innerText = correct;
+    form.style.visibility = "visible";
+    hs.style.visibility = "visible";
 }
 
 // create high score html that is linked to a hyper link

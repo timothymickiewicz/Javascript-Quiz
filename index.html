@@ -9,21 +9,26 @@
     <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
 <body>
+    <div id="highScoresWrap">
+        <a href="high-score.html" id="highScores">High Scores</a>
+    </div>
     <h1>Test Your<span id ="javascript"> Javascript </span>Knowledge!</h1>
     <div class="questionText"></div>
-    <div id="timer"></div>
     <div class ="hide">
-    <p id="highScore1"></p>
-    <p id="highScore2"></p>
-    <p id="highScore3"></p>
-    <p id="highScore4"></p>
-    <p id="highScore5"></p>
     <ul>
         <li><button id="answer1"></button></li>
         <li><button id="answer2"></button></li>
         <li><button id="answer3"></button></li>
         <li><button id="answer4"></button></li>
     </ul>
+    </div>
+    <div id="timer"></div>
+    <div id="form-wrap">
+        <form>
+            <label for="initials" id="initials">Initials:</label><br>
+            <input type="text" id="initials-input" name="initials"><br>
+            <input type="submit" value="Submit" id="submitHS">
+        </form>
     </div>
     <div class="wrapButton"><button id="startBtn" class="htmlBtn">Start</button></div>
     <script src="script.js"></script>

@@ -63,7 +63,19 @@ h1 {
 .hide {
     visibility: hidden;
 }
-/* styles for high scores */
+/* styles for high scores and high score hyperlink */
+#highScores {
+    border: 0.25vw solid yellow;
+    border-radius: 0.5vw;
+    margin: 0.5vw;
+    padding: 0.5vw;
+    color: yellow;
+    background: black;
+}
+#highScoresWrap {
+    text-align: right;
+    margin: 1vw;
+}
 #highScore1 {
     display: flex;
     justify-content: left;
@@ -122,4 +134,28 @@ h1 {
     text-align: center;
     margin-top: 2vw;
     font-family: "Alfa Slab One", "Righteous";
+}
+/* Submit form styling */
+#form-wrap {
+    color:chartreuse;
+    font-size: 2vw;
+    display: block;
+    text-align: center;
+    font-family: "Alfa Slab One", "Righteous";
+    margin: 1.5vw;
+    visibility: hidden;
+}
+#initials-input {
+    margin: 1vw;
+}
+#submitHS {
+    color: chartreuse;
+    border: 0.5vw solid chartreuse;
+    border-radius: 1vw;
+    background-color: black;
+}
+form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
