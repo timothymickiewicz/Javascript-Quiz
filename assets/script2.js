@@ -3,15 +3,32 @@ var hs2 = document.getElementById("highScore2");
 var hs3 = document.getElementById("highScore3");
 var hs4 = document.getElementById("highScore4");
 var hs5 = document.getElementById("highScore5");
-// Getting info from local storage
-function initialsAndScore() {
-    var initials = localStorage.getItem("userInitials");
-    var score = localStorage.getItem("score");
-    var parsedInitials = JSON.parse(initials);
-    var parsedScore = JSON.parse(score);
-    hs1.innerHTML = parsedInitials[0] + " :  " + parsedScore[0];
-    console.log(parsedScore[0]);
-    console.log(parsedInitials[0]);
+var header = document.querySelector("h1");
+// Grabbing info from local storage
+var initials = localStorage.getItem("userInitials");
+var score = localStorage.getItem("score");
+var parsedInitials = JSON.parse(initials);
+var parsedScore = JSON.parse(score);
+if (initials && score === undefined) {
+    var parsedInitials = ["cleared"];
+    var parsedScore = ["cleared"];
 }
-// Displaying the info to the page
-initialsAndScore()
+
+// Putting local storage onto page
+for (var i = 0; i < parsedScore.length; i++) {
+    var p = document.createElement("P");
+    document.body.appendChild(p);
+    p.innerText = parsedInitials[i] + " :  " + parsedScore[i];
+}
+header.innerText = "High Scores";
+function clearBtn() {
+    var button = document.createElement("BUTTON");
+    document.body.appendChild(button);
+    button.innerText = "Clear High Scores";
+    button.classList.toggle("button");
+    button.addEventListener("click", function() {
+        localStorage.clear();
+    });    
+}
+clearBtn();
+
