@@ -11,16 +11,12 @@ var hide = document.querySelector(".hide");
 var form = document.querySelector("form");
 var submit = document.getElementById("submitHS");
 var hs = document.getElementById("highScores");
-var hs1 = document.getElementById("highScore1");
-var hs2 = document.getElementById("highScore2");
-var hs3 = document.getElementById("highScore3");
-var hs4 = document.getElementById("highScore4");
-var hs5 = document.getElementById("highScore5");
 var check = null;
 var correct = 0;
 var incorrect = 0;
 var sec = 60;
 var inputArray = [];
+var scoreArray = [];
 
 // Initial alert describing game parameters
 alert("Welcome to my Javascript Quiz! Correct answers are added to your end game score. Incorrect answers subtract 10 seconds from the timer. You have 60 seconds to complete the quiz. High scores are saved so try your best! Press the start button to begin.");
@@ -50,7 +46,6 @@ function initialClick() {
         toggleClass();
         // Creating a timer function that runs after start click
         function startTimer(){
-            console.log('timer suppose to go')
             var timer = setInterval(function(){
                 sec--;
                 document.getElementById('timer').innerHTML="Time: " + sec;
@@ -232,14 +227,25 @@ function endGame() {
     submit.addEventListener("click", function(event){
         event.preventDefault()
         initialsAdd();
+        scoreAdd();
         form.reset();
       });
 }
+// Local storage functions
+function scoreAdd() {
+    scoreArray.push(correct);
+    window.localStorage.setItem("score", JSON.stringify(scoreArray));
+    console.log(scoreArray);
+}
 function initialsAdd() {
     var initialsInput = document.getElementById("initials-input").value;
-    inputArray.push(initialsInput);
+    if (initialsInput) {
+        inputArray.push(initialsInput);
+    }
+    else {
+        alert("You must enter your initials! Please try again.")
+    }
     window.localStorage.setItem("userInitials", JSON.stringify(inputArray));
-    console.log(inputArray);
 }
 // Create high score html that is linked to a hyper link
 console.log(header.textContent);

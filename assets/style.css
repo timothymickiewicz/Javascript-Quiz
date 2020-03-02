@@ -74,57 +74,7 @@ h1 {
     text-align: right;
     margin: 1vw;
 }
-#highScore1 {
-    display: flex;
-    justify-content: left;
-    margin: auto;
-    color: chartreuse;
-    font-size: 2.5vw;
-    text-align: left;
-    margin-top: 2vw;
-    margin-left: 2vw;
-    font-family: "Alfa Slab One", "Righteous";
-}
-#highScore2 {
-    display: flex;
-    justify-content: left;
-    margin: auto;
-    color: chartreuse;
-    font-size: 2.5vw;
-    text-align: left;
-    margin-top: 2vw;
-    font-family: "Alfa Slab One", "Righteous";
-}
-#highScore3 {
-    display: flex;
-    justify-content: left;
-    margin: auto;
-    color: chartreuse;
-    font-size: 2.5vw;
-    text-align: left;
-    margin-top: 2vw;
-    font-family: "Alfa Slab One", "Righteous";
-}
-#highScore4 {
-    display: flex;
-    justify-content: left;
-    margin: auto;
-    color: chartreuse;
-    font-size: 2.5vw;
-    text-align: left;
-    margin-top: 2vw;
-    font-family: "Alfa Slab One", "Righteous";
-}
-#highScore5 {
-    display: flex;
-    justify-content: left;
-    margin: auto;
-    color: chartreuse;
-    font-size: 2.5vw;
-    text-align: left;
-    margin-top: 2vw;
-    font-family: "Alfa Slab One", "Righteous";
-}
+/* Timer styling */
 #timer {
     margin: 0 auto;
     color: red;
