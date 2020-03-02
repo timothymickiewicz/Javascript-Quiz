@@ -33,12 +33,10 @@ h1 {
     transition-duration: 0s;
     margin-bottom: 5vw;
 }
-
 .wrapButton {
     display: flex;
     justify-content: center;
 }
-
 .questionText {
     color: chartreuse;
     font-size: 4vw;

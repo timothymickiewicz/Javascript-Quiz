@@ -9,6 +9,7 @@ var three = document.getElementById("answer3");
 var four = document.getElementById("answer4");
 var hide = document.querySelector(".hide");
 var form = document.querySelector("form");
+var submit = document.getElementById("submitHS");
 var hs = document.getElementById("highScores");
 var hs1 = document.getElementById("highScore1");
 var hs2 = document.getElementById("highScore2");
@@ -19,9 +20,10 @@ var check = null;
 var correct = 0;
 var incorrect = 0;
 var sec = 60;
+var inputArray = [];
 
 // Initial alert describing game parameters
-alert("Welcome to my Javascript Quiz! Correct answers are added to your end game score. Incorrect answers subtract 10 seconds from the timer. You have 60 seconds to complete the quiz. High scores are logged so try your best! Press the start button to begin.");
+alert("Welcome to my Javascript Quiz! Correct answers are added to your end game score. Incorrect answers subtract 10 seconds from the timer. You have 60 seconds to complete the quiz. High scores are saved so try your best! Press the start button to begin.");
 //Start button click event
 if (correct + incorrect === 0) {
     btn.addEventListener("click", function() {
@@ -46,6 +48,7 @@ function initialClick() {
         form.style.visibility = "hidden";
         btn.style.visibility = "hidden";
         toggleClass();
+        // Creating a timer function that runs after start click
         function startTimer(){
             console.log('timer suppose to go')
             var timer = setInterval(function(){
@@ -121,7 +124,7 @@ function removeq3() {
     three.removeEventListener("click", q3nextThreeFalse, true);
     four.removeEventListener("click", q3nextFourTrue, true);
 }
-// functions for question 1
+// Functions for the answers on question 1
 function nextOneTrue() {
     trueAnswer();
     removeq1();
@@ -142,7 +145,7 @@ function nextFourFalse() {
     removeq1();
     movetoTwo();
 }
-// functions for question 2
+// Functions for the answers on question 2
 function q2nextOneFalse() {
     falseAnswer();
     removeq2();
@@ -163,7 +166,7 @@ function q2nextFourFalse() {
     removeq2();
     movetoThree();
 }
-// Functions for question 3
+// Functions for the answers on question 3
 function q3nextOneFalse() {
     falseAnswer();
     removeq3();
@@ -226,8 +229,18 @@ function endGame() {
     four.style.display = "none";
     form.style.visibility = "visible";
     hs.style.visibility = "visible";
+    submit.addEventListener("click", function(event){
+        event.preventDefault()
+        initialsAdd();
+        form.reset();
+      });
 }
-
-// create high score html that is linked to a hyper link
+function initialsAdd() {
+    var initialsInput = document.getElementById("initials-input").value;
+    inputArray.push(initialsInput);
+    window.localStorage.setItem("userInitials", JSON.stringify(inputArray));
+    console.log(inputArray);
+}
+// Create high score html that is linked to a hyper link
 console.log(header.textContent);
 console.log(btn.textContent);
