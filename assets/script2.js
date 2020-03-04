@@ -6,22 +6,7 @@ var hs5 = document.getElementById("highScore5");
 var header = document.querySelector("h1");
 var inputArray = JSON.parse(localStorage.getItem("userInitials"));
 var scoreArray = JSON.parse(localStorage.getItem("score"));
-// Grabbing info from local storage
-// if (localStorage.getItem("userInitials") == null){
-//     localStorage.setItem("userInitials", "TM");
-//     var inputArray = [];
-// }
-// else if (localStorage.getItem("userInitials")) {
-//     var inputArray = JSON.parse(localStorage.getItem("userInitials"));
-// }
-// if (localStorage.getItem("score") == null) {
-//     localStorage.setItem("score", 0);
-//     var scoreArray = [];
-// }
-// else if (localStorage.getItem("score")) {
-//     var scoreArray = JSON.parse(localStorage.getItem("score"));
-// }
-// Putting local storage onto page
+// Loop starts at 1 index to ignore default value in the arrays
 for (var i = 1; i < scoreArray.length; i++) {
     var p = document.createElement("P");
     document.body.appendChild(p);

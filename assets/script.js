@@ -17,19 +17,23 @@ var incorrect = 0;
 var sec = 60;
 var inputArray = [];
 var scoreArray = [];
-// var inputArray = JSON.parse(localStorage.getItem("userInitials"));
-// var scoreArray = JSON.parse(localStorage.getItem("score"));
+// Establishing default values to have dynamic arrays and prevent undefined values being parsed
+if (localStorage.getItem("userInitials") == null) {
+    var defaultTM = "";
+    inputArray.push(defaultTM);
+    localStorage.setItem("userInitials", JSON.stringify(inputArray));
+}
+else {
+    inputArray = JSON.parse(localStorage.getItem("userInitials"));
+}
 if (localStorage.getItem("score") == null) {
-    var defaultScore = [0];
+    var defaultScore = 0;
     scoreArray.push(defaultScore);
     localStorage.setItem("score", scoreArray);
-    // scoreArray = JSON.parse(localStorage.getItem("score"));
 }
 else {
     scoreArray = JSON.parse(localStorage.getItem("score"));
 }
-console.log(scoreArray);
-console.log(inputArray);
 // Initial alert describing game parameters
 alert("Welcome to my Javascript Quiz! Correct answers are added to your end game score. Incorrect answers subtract 10 seconds from the timer. You have 60 seconds to complete the quiz. High scores are saved so try your best! Press the start button to begin.");
 //Start button click event
@@ -83,8 +87,6 @@ function checkAnswer() {
         incorrect = incorrect + 1;
         sec -= 10; // Subtracting time for missed answers
     }
-    console.log(correct);
-    console.log(incorrect);
 }
 // Establishing answer as true or false
 function trueAnswer() {
@@ -239,32 +241,22 @@ function endGame() {
     submit.addEventListener("click", function(event){
         event.preventDefault();
         initialsAdd();
-        scoreAdd();
         form.reset();
       });
 }
 // Local storage functions
 function scoreAdd() {
-
     scoreArray.push(correct);
     localStorage.setItem("score", JSON.stringify(scoreArray));
 }
 function initialsAdd() {
-    if (localStorage.getItem("userInitials") == null) {
-        var defaultTM = "";
-        inputArray.push(defaultTM);
-        localStorage.setItem("userInitials", JSON.stringify(inputArray));
-        // inputArray = JSON.parse(localStorage.getItem("userInitials"));
-    }
-    else {
-        inputArray = JSON.parse(localStorage.getItem("userInitials"));
-    }
     var initialsInput = document.getElementById("initials-input").value;
     if (initialsInput === initialsInput.toUpperCase() && initialsInput.length === 2) {
+        scoreAdd();
         inputArray.push(initialsInput);
         localStorage.setItem("userInitials", JSON.stringify(inputArray));
     }
     else {
-        alert("You must enter your initials in upper case! Please try again.");
+        alert("You must enter your initials as two upper case letters! Please try again.");
     }
 }
