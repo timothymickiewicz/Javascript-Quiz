@@ -252,6 +252,7 @@ function scoreAdd() {
 function initialsAdd() {
     var initialsInput = document.getElementById("initials-input").value;
     if (initialsInput === initialsInput.toUpperCase() && initialsInput.length === 2) {
+        // scoreAdd placed in here so it will only go to storage if it has valid initials to send also, this prevents mismatch index values when displaying on high score page
         scoreAdd();
         inputArray.push(initialsInput);
         localStorage.setItem("userInitials", JSON.stringify(inputArray));
