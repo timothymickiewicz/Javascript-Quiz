@@ -17,9 +17,10 @@ var incorrect = 0;
 var sec = 60;
 var inputArray = [];
 var scoreArray = [];
+
 // Establishing default values to have dynamic arrays and prevent undefined values being parsed
 if (localStorage.getItem("userInitials") == null) {
-    var defaultTM = "";
+    var defaultTM = "TM";
     inputArray.push(defaultTM);
     localStorage.setItem("userInitials", JSON.stringify(inputArray));
 }
@@ -29,7 +30,7 @@ else {
 if (localStorage.getItem("score") == null) {
     var defaultScore = 0;
     scoreArray.push(defaultScore);
-    localStorage.setItem("score", scoreArray);
+    localStorage.setItem("score", JSON.stringify(scoreArray));
 }
 else {
     scoreArray = JSON.parse(localStorage.getItem("score"));
